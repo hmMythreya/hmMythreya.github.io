@@ -80,3 +80,47 @@ footer {
     padding: 20px;
     background-color: #111;
 }
+
+/* Projects Grid */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.clickable-thumbnail {
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.clickable-thumbnail:hover {
+    transform: scale(1.05);
+}
