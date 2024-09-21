@@ -1,45 +1,51 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Import JetBrains Mono font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
+/* Apply JetBrains Mono font globally */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: #000;
     color: #fff;
+    margin: 0;
 }
 
+/* Centered Navbar */
 nav ul {
     display: flex;
+    justify-content: center;
     list-style: none;
     padding: 1em;
     background-color: #111;
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    background-color: #333;
 }
 
+nav ul li a.active {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Landing page and other content */
 .landing {
     display: flex;
     height: 100vh;
     justify-content: space-between;
     align-items: center;
     padding: 0 10%;
-}
-
-.bio {
-    max-width: 50%;
 }
 
 .bio h1 {
@@ -64,24 +70,14 @@ nav ul li a:hover {
     text-align: left;
 }
 
-.project-list,
-.writeup-list {
-    list-style: none;
-    padding: 0;
-}
-
-.project-list li,
-.writeup-list li {
-    margin-bottom: 20px;
-}
-
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #111;
 }
 
-/* Projects Grid */
+/* Project Grid and Cards */
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
@@ -100,17 +96,6 @@ footer {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
-}
-
-.project-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    color: #ddd;
 }
 
 .clickable-thumbnail {
