@@ -111,11 +111,13 @@ header ul {display:inline-block;background:#131313;text-align:center;padding:10p
     float:left;
     margin:0;
     color:#ffffff;
+    max-width: 70%;
 }
 
 .education-block span {
     color:#ffffff;
     float:right;
+    text-align:right;
 }
 
 .education-block h4 {
