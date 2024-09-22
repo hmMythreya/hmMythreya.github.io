@@ -7,28 +7,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="writeups.html">Writeups</a></li>
-        </ul>
-    </nav>
-
     <div class="fit-to-section">
     <section class="landing">
         <div class="bio">
-            <h1 id="fade-in-name">Hello, I'm Mythreya</h1>
-            <p id="fade-in-up">I’m a cybersecurity student with a passion for protecting and securing digital systems. Here you can find my projects, writeups, and more about my journey.</p>
+            <h1 id="fade-in-name">Hi, I'm Mythreya</h1>
+            <p id="fade-in-up">A cybersecurity enthusiast who loves to break software and understand how they work. I am currently pursuing a Master's degree in Cybersecurity at University of Maryland - College park. Welcome to my portfolio!</p>
         </div>
         <div class="photo">
-            <img id="fade-in-photo" src="assets/facepic.JPG" alt="Your Face">
+            <img id="fade-in-photo" src="assets/facepic.JPG">
         </div>
     </section>
     </div>
 
-    <section class="projects" id="projects-container"></section>
-        <!-- Projects will be appended here -->
+    <section class="projects" id="card-grid">
+        <div id="center-text"><a href="projects.html">PROJECTS</a></div>
+        <div class="blog-wrapper">
+            <div class="blog-card">
+                <div class="card-image">
+                    <img src="assets/elastic.svg" width="200px" height="200px">
+                    <h1>Elastic stack SIEM configuration</h1>
+                </div>
+                <div class="card-text">
+                    <p><ul>
+                    <li>Successfully setup Elastic Stack SIEM in a home lab environment</li>
+                    <li>Demonstrated proficiency in configuring elastic agents in a kali linux VM and an ubuntu VM, for log collection and forwarding to SIEM for security event monitoring</li>
+                    <li>Acquired skills for querying logs in Elastic SIEM and set up alerts for nmap activity on both agents</li>
+                    <li>Created dashboards to visualize security alerts and events</li>
+                    <li>Generated over 60 alerts to test working of SIEM</li>
+                    </ul></p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="card-image">
+                    <img src="assets/raspberry-pi.svg" width="35%" height="35%" style="padding-top: 11%; padding-bottom: 11%;">
+                    <h1>Home Lab and VPN setup with raspberry pi 5</h1>
+                </div>
+                <div class="card-text">
+                    <p><ul>
+                    <li>Installed, setup, and configured Ubuntu Server 24.04.1 LTS on a raspberry pi 5</li>
+                    <li>Configured router settings to allocate static IP to rpi5 and setup port forwarding rules</li>
+                    <li>Setup and configured a VPN server on rpi5 with pivpn, duckdns and wireguard</li>
+                    <li>Deployed Damn Vulnerable Web App (DVWA) and juice shop for web penetration practice</li>
+                    </ul></p>
+                </div>
+            </div>
     </section>
 
     <section class="writeups" id="writeups-container">
