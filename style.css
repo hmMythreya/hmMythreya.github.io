@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'JetBrains Mono', monospace;
-    background-color: #000;
+    background-color: #131313;
     color: #fff;
     margin: 0;
 }
@@ -23,6 +23,10 @@ body {
     flex: 1;
     padding: 50px;
     text-align: left;
+    max-width: 600px; /* Limit width of the content */
+    margin: auto; /* Center the content */
+    padding: 20px; /* Add padding */
+    text-align: left; /* Left align text */
 }
 
 
@@ -32,7 +36,8 @@ nav ul {
     justify-content: center;
     list-style: none;
     padding: 1em;
-    background-color: #111;
+    background-color: #272727;
+    background: none; /* Ensure no background */
 }
 
 nav ul li {
@@ -50,20 +55,43 @@ nav ul li a.active {
     background-color: #444;
 }
 
+.fit-to-screen {
+    height: 100%;
+    width: 100%;
+}
+
 /* Landing Page Layout */
 .landing {
     display: flex;
     height: 100vh;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 17%;
+    flex-wrap: nowrap; /* Ensure items don't wrap */
+}
+
+.photo img {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    width: 330px; /* Set desired width */
+    height: 330px; /* Set height to match width for circular shape */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+}
+
+.bio {
+    flex: 1; /* Ensure the bio takes up available space */
+    margin-right: 20px; /* Space between text and image */
+    text-align: left; /* Align text to the left */
+    max-width: 50%; /* Limit the width to 50% */
+    white-space: normal; /* Allow text to wrap naturally */
+    overflow-wrap: break-word; /* Ensure long words break to next line if necessary */
 }
 
 /* Animations */
 @keyframes fadeInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100%);
+        transform: translateX(-10%);
     }
     100% {
         opacity: 1;
@@ -74,7 +102,7 @@ nav ul li a.active {
 @keyframes fadeInRight {
     0% {
         opacity: 0;
-        transform: translateX(100%);
+        transform: translateX(20%);
     }
     100% {
         opacity: 1;
@@ -82,29 +110,20 @@ nav ul li a.active {
     }
 }
 
-@keyframes typing {
+@keyframes fadeInUp {
     0% {
-        width: 0;
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly lower */
     }
     100% {
-        width: 100%;
-    }
-}
-
-@keyframes blinkCursor {
-    0% {
-        border-right-color: rgba(255, 255, 255, 0.75);
-    }
-    50% {
-        border-right-color: transparent;
-    }
-    100% {
-        border-right-color: rgba(255, 255, 255, 0.75);
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
     }
 }
 
 /* Name Text Animation */
 #fade-in-name {
+    font-size: 2.25em;
     opacity: 0;
     animation: fadeInLeft 1.5s forwards;
 }
@@ -113,31 +132,22 @@ nav ul li a.active {
 #fade-in-photo {
     opacity: 0;
     animation: fadeInRight 1.5s forwards;
-    animation-delay: 0.5s;
 }
 
-/* Typing Animation for Bio Text */
-#typing-text {
-    font-size: 1.2em;
-    line-height: 1.5em;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid;
-    width: 0;
-    animation: typing 4s steps(40, end), blinkCursor 0.75s step-end infinite;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
+#fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1.5s forwards;
 }
 
 /* Footer */
 footer {
-    background-color: #111;
     color: #fff;
     text-align: center;
     padding: 20px;
     position: relative;
     bottom: 0;
     width: 100%;
+    background: none; /* Ensure no background */
 }
 
 /* Projects Grid */
@@ -146,20 +156,6 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 50px; /* Ensure there's space above the footer */
-}
-
-.project-card {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-}
-
-.project-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
 }
 
 .clickable-thumbnail {
@@ -172,4 +168,188 @@ footer {
 
 .clickable-thumbnail:hover {
     transform: scale(1.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    margin: 20px 0; /* Space above and below */
+}
+
+.social-icon {
+    color: #fff; /* Icon color */
+    font-size: 2em; /* Size of the icons */
+    margin: 0 15px; /* Space between icons */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.social-icon:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
+label {
+    display: block; /* Make label a block element */
+    margin-bottom: 5px; /* Space between label and textarea */
+    font-weight: bold; /* Make the label bold */
+}
+
+textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the textarea */
+    margin-top: 5px; /* Space above the textarea */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border style */
+    resize: none; /* Disable resizing */
+}
+
+button {
+    background-color: #444; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #f39c12; /* Change color on hover */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line if needed */
+    justify-content: flex-start; /* Align cards to the left */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px; /* Space above the card container */
+}
+
+.card-grid {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px; /* Space above the grid */
+}
+
+.card {
+    position: relative; /* Position for the image and text overlay */
+    background-color: #444; /* Card background color */
+    color: #fff; /* Text color */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    opacity: 0; /* Start hidden for fade-in effect */
+    animation: fadeIn 0.6s forwards; /* Fade-in animation */
+}
+
+.card img {
+    width: 100%; /* Full width of the card */
+    transition: filter 0.3s; /* Smooth transition for filter */
+}
+
+.card:hover img {
+    filter: blur(5px); /* Blur image on hover */
+}
+
+.card h2 {
+    margin: 10px 0; /* Space above and below the heading */
+}
+
+.card p {
+    margin: 0 0 15px; /* Space below the paragraph */
+}
+
+.description {
+    position: absolute; /* Position the text overlay */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for center alignment */
+    color: #fff; /* Text color */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s; /* Smooth transition */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Padding around text */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.card:hover .description {
+    opacity: 1; /* Show text overlay on hover */
+}
+
+.button {
+    display: inline-block; /* Make it a block for padding */
+    background-color: #f39c12; /* Button color */
+    color: #fff; /* Text color */
+    padding: 10px 15px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.button:hover {
+    background-color: #e67e22; /* Darker shade on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+        transform: translateY(10px); /* Slightly drop in */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+.projects, .writeups, .socials {
+    padding: 40px 20px; /* Add vertical padding for gaps */
+    background-color: #131313; /* Optional background color */
+    color: #fff; /* Text color */
+    margin-top: 20px; /* Space above sections */
+}
+
+.project, .writeup {
+    display: flex;
+    align-items: center;
+    margin: 20px 0; /* Space between projects/writeups */
+    opacity: 0; /* Start hidden for fade-in effect */
+    transition: opacity 0.5s;
+}
+
+.project.visible, .writeup.visible {
+    opacity: 1; /* Fade in */
+}
+
+.project-image, .writeup-image {
+    width: 50%; /* Adjust width as needed */
+    transition: filter 0.5s; /* Smooth transition for hover effects */
+}
+
+.project-description, .writeup-description {
+    padding: 20px;
+    width: 50%; /* Adjust width as needed */
+}
+
+.social-icons {
+    text-align: center;
+}
+
+.social-icons a {
+    margin: 0 10px; /* Space between icons */
+}
+
+.social-icons img {
+    width: 40px; /* Size for social icons */
+    height: auto;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.6s forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.6s forwards;
 }
